@@ -18,24 +18,8 @@ class connect():
             database=self.database
             )
             cursor = connection.cursor()
-
-
-
-            cursor.execute(f"SHOW COLUMNS FROM {table}")
-            columns_result = cursor.fetchall()
-            table_columns = [column[0] for column in columns_result]
-
-            dt = {col: [] for col in table_columns }
-
-
-            cursor.execute(f"SELECT * FROM {table}")
-            table_result = cursor.fetchall()
-
-            for row in table_result:
-              for index,column_name in enumerate(table_columns):
-                  dt[column_name].append(row[index])
             
-            df = pd.DataFrame(dt)
+            df = pd.read_sql(f"Select * FROM {table}", connection)
 
             return df
              
