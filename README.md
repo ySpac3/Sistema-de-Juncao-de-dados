@@ -10,6 +10,3 @@ Caso queira apenas vizualizar será imprimido um dataframe com todos usuarios e 
 Caso queira alterar uma informação será pedido o código do usuario assim podendo ser alterada a informação necessaria
 Caso queira listar um usuario especifico por alguma informação será perguntada qual informação deseja ser utilizada de base para a pesquisa e após isso será pedido o valor da informação, assim que passado será imprimido novamente as informações do cliente requisitado
 
-# O que será necessario
-
-Apenas é necessário que os 3 bancos de dados possuam um código de cliente em comum para poder localizar todas informações
