@@ -4,11 +4,11 @@ import os
 
 
 connection_1 = c.connect(
-    "localhost", "root", "240123Ex!", "bdclientesmonitor")
+    "", "", "", "")
 connection_2 = c.connect(
-    "localhost", "root", "240123Ex!", "bdclientespagamento")
+    "", "", "!", "")
 connection_3 = c.connect(
-    "localhost", "root", "240123Ex!", "bdclientesatisfaçao")
+    "", "", "", "")
 
 
 df_1 = connection_1.read('clientesmonitorados')
