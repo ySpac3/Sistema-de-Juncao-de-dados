@@ -11,9 +11,9 @@ connection_3 = c.connect(
     "", "", "", "")
 
 
-df_1 = connection_1.read('clientesmonitorados')
-df_2 = connection_2.read('clientepagamento')
-df_3 = connection_3.read('clientesatisfeito')
+df_1 = connection_1.read('')
+df_2 = connection_2.read('')
+df_3 = connection_3.read('')
 
 df_4 = pd.merge(df_1, df_2, on=list(
                 set(df_1.columns) & set(df_2.columns)), how="outer")
