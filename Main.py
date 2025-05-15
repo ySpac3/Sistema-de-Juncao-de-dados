@@ -1,19 +1,36 @@
 import Connector as c
 import pandas as pd
 import os
+host1 = input("Digite o host1 >> ").strip()
+user1 = input("Digite o user1 >> ").strip()
+senha1 = input("Digite a senha1 >> ").strip()
+database1 = input("Digite a database1 >> ").strip()
 
+host2 = input("Digite o host2 >> ").strip()
+user2 = input("Digite o user2 >> ").strip()
+senha2 = input("Digite a senha2 >> ").strip()
+database2 = input("Digite a database2 >> ").strip()
+
+host3 = input("Digite o host3 >> ").strip()
+user3 = input("Digite o user3 >> ").strip()
+senha3 = input("Digite a senha3 >> ").strip()
+database3 = input("Digite a database3 >> ").strip()
+
+table1 = input("Digite a tabela1 >> ").strip()
+table2 = input("Digite a tabela2 >> ").strip()
+table3 = input("Digite a tabela3 >> ").strip()
 
 connection_1 = c.connect(
-    "", "", "", "")
+    host1, user1, senha1, database1)
 connection_2 = c.connect(
-    "", "", "", "")
+    host2, user2, senha2, database2)
 connection_3 = c.connect(
-    "", "", "", "")
+    host3, user3, senha3, database3)
 
 
-df_1 = connection_1.read('')
-df_2 = connection_2.read('')
-df_3 = connection_3.read('')
+df_1 = connection_1.read(table1)
+df_2 = connection_2.read(table2)
+df_3 = connection_3.read(table3)
 
 df_4 = pd.merge(df_1, df_2, on=list(
                 set(df_1.columns) & set(df_2.columns)), how="outer")
