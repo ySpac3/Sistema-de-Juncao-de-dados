@@ -1,5 +1,6 @@
 import mysql.connector
 import pandas as pd
+from sqlalchemy import create_engine
 
 class connect():
     def __init__(self,host,user,password,database):
@@ -10,24 +11,10 @@ class connect():
         pass
 
     def read(self,table):
+        url = f'mysql+mysqlconnector://{self.user}:{self.password}@{self.host}/{self.database}'
+        engine = create_engine(url)
         try:
-            connection = mysql.connector.connect(
-            host=self.host,
-            user=self.user,
-            password=self.password,
-            database=self.database
-            )
-            cursor = connection.cursor()
-            
-            df = pd.read_sql(f"Select * FROM {table}", connection)
-
+            df = pd.read_sql(f"Select * FROM {table}", engine)
             return df
-             
-
-        except mysql.connector.Error as err:
-            print(f"Erro: {err}")
-
         finally:
-            if connection.is_connected():
-                cursor.close()
-                connection.close()
+            engine.dispose()
